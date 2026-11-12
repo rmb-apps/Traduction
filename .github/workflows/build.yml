@@ -21,7 +21,7 @@ jobs:
           python3 tool/patch_android.py
           flutter pub get
           dart run flutter_launcher_icons
-          flutter build apk --release
+          flutter build apk --release --dart-define=OCR_SPACE_KEY=${{ secrets.OCR_SPACE_KEY }}
       - uses: actions/upload-artifact@v4
         with:
           name: traduction-apk

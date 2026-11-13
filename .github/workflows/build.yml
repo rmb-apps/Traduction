@@ -8,6 +8,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: unzip -o traduction.zip
+      - name: Check translation service
+        continue-on-error: true
+        run: curl -sS -m 20 'https://api.mymemory.translated.net/get?q=bonjour&langpair=fr|ar&de=rmb.contact147@gmail.com'
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
